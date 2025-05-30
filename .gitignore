@@ -1,0 +1,7 @@
+# Visual Studio related ignores
+.vs/
+bin/
+obj/
+*.user
+*.suo
+*.log

@@ -1,7 +1,74 @@
-# Visual Studio related ignores
+# Visual Studio files
 .vs/
-bin/
-obj/
 *.user
 *.suo
+*.userosscache
+*.sln.docstates
+
+# Build results
+bin/
+obj/
+
+# Visual Studio Code settings
+.vscode/
+
+# ASP.NET temporary files
+wwwroot/lib/
+
+# User-specific files
+*.rsuser
+*.DotSettings.user
+*.ncb
+*.aps
+*.pch
+*.dbmdl
+
+# Publish output
+publish/
+
+# NuGet Packages
+*.nupkg
+*.snupkg
+
+# Backup & cache files
+*.bak
+*.cache
 *.log
+*.tlog
+
+# Rider IDE files
+.idea/
+
+# Dotnet Tools
+.tools/
+
+# Secrets file
+secrets.json
+
+# User secrets folder
+secrets/
+
+# ASP.NET Core environment variables
+appsettings.Development.json
+
+# Entity Framework migration files
+Migrations/
+
+# IIS Express
+IISExpress/
+
+# Local database files
+*.mdf
+*.ldf
+
+# Resharper
+_ReSharper*/
+
+# JetBrains Rider
+.idea/
+
+# npm packages
+node_modules/
+
+# Yarn files
+.yarn/*

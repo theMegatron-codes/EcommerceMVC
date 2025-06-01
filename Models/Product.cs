@@ -1,4 +1,7 @@
-﻿namespace Ecommerce.Models
+﻿using System.Runtime.InteropServices;
+using System.ComponentModel.DataAnnotations;   
+
+namespace Ecommerce.Models
 {
     public class Product
     {
@@ -10,7 +13,12 @@
         public string? Description { get; set; }
 
         public string? Image { get; set; }
-        
+
+        public int CategoryId { get; set; }
+
+        [Display(Name = "Category")]
+        public Category? Category { get; set; } 
+
 
     }
 }

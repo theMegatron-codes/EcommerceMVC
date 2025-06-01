@@ -1,4 +1,5 @@
 using Ecommerce.Data;
+using Ecommerce.Data.Seeders;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -17,6 +18,21 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+
+    // Seed categories
+    var context = services.GetRequiredService<ApplicationDbContext>();
+    DbSeeder.SeedCategories(context);
+
+    // Seed Identity roles and users
+    var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
+    var userManager = services.GetRequiredService<UserManager<IdentityUser>>();
+    var seeder = new DataSeeder(roleManager, userManager);
+    await seeder.SeedAsync();
+}
+
 
 using (var scope = app.Services.CreateScope())
 {

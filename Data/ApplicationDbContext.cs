@@ -4,13 +4,14 @@ using Ecommerce.Models;
 
 namespace Ecommerce.Data
 {
-    public class ApplicationDbContext : IdentityDbContext
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
         }
-        public DbSet<Product>Products{get; set;}
-        public DbSet<Category> Categories { get; set; }
+        public DbSet<Product> Products { get; set; } = null!;
+        public DbSet<Category> Categories { get; set; } = null!;
+        public DbSet<Cart> Carts { get; set; } = null!;
     }
 }

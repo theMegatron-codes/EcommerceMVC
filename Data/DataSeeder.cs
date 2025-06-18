@@ -1,13 +1,15 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Ecommerce.Models;
+using Microsoft.AspNetCore.Identity;
 using System.Threading.Tasks;
+
 namespace Ecommerce.Data
 {
     public class DataSeeder
     {
         private readonly RoleManager<IdentityRole> _roleManager;
-        private readonly UserManager<IdentityUser> _userManager;
+        private readonly UserManager<ApplicationUser> _userManager;
 
-        public DataSeeder(RoleManager<IdentityRole> roleManager, UserManager<IdentityUser> userManager)
+        public DataSeeder(RoleManager<IdentityRole> roleManager, UserManager<ApplicationUser> userManager)
         {
             _roleManager = roleManager;
             _userManager = userManager;
@@ -29,14 +31,14 @@ namespace Ecommerce.Data
 
         public async Task SeedAdminUserAsync()
         {
-            // Change these values as needed
             var adminEmail = "Aalok.bajgain123@gmail.com";
             var adminPassword = "Aalok@123";  // Use a strong password in real apps!
 
             var adminUser = await _userManager.FindByEmailAsync(adminEmail);
             if (adminUser == null)
             {
-                adminUser = new IdentityUser
+                // Create your custom ApplicationUser, not IdentityUser
+                adminUser = new ApplicationUser
                 {
                     UserName = adminEmail,
                     Email = adminEmail,

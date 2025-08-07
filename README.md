@@ -24,10 +24,3 @@ A simple, role-based **E-commerce web application** built with **ASP.NET Core MV
 - Visual Studio 2022
 
 ---
-
-## 🔧 Setup Instructions
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/theMegatron-codes/EcommerceMVC.git
-   cd EcommerceMVC

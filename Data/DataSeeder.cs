@@ -32,12 +32,11 @@ namespace Ecommerce.Data
         public async Task SeedAdminUserAsync()
         {
             var adminEmail = "Aalok.bajgain123@gmail.com";
-            var adminPassword = "Aalok@123";  // Use a strong password in real apps!
+            var adminPassword = "Aalok@123"; 
 
             var adminUser = await _userManager.FindByEmailAsync(adminEmail);
             if (adminUser == null)
             {
-                // Create your custom ApplicationUser, not IdentityUser
                 adminUser = new ApplicationUser
                 {
                     UserName = adminEmail,

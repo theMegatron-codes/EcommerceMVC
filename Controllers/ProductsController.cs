@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace Ecommerce.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class ProductsController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -20,7 +21,6 @@ namespace Ecommerce.Controllers
             _context = context;
         }
 
-        // GET: Products
         public async Task<IActionResult> Index()
         {
             return View(await _context.Products.Include(p=>p.Category).ToListAsync());

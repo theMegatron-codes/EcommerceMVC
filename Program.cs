@@ -1,6 +1,6 @@
 using Ecommerce.Data;
 using Ecommerce.Data.Seeders;
-using Ecommerce.Models; // Make sure to include this for ApplicationUser
+using Ecommerce.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -15,7 +15,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 // Use ApplicationUser instead of IdentityUser here
-builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
+builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false)
     .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
 
@@ -40,7 +40,6 @@ using (var scope = app.Services.CreateScope())
     await seeder.SeedAsync();
 }
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseMigrationsEndPoint();
@@ -56,7 +55,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-app.UseAuthentication();  // Important for Identity to work
+app.UseAuthentication();  
 
 app.UseAuthorization();
 
